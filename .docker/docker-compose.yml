@@ -1,0 +1,12 @@
+version: "2"
+services:
+  node:
+    container_name: CDAFolderDownloader
+    build:
+      context: ./
+    environment:
+      - PUID=${PUID:-1000}
+      - PGID=${PGID:-1000}
+    volumes:
+      - ../app:/app
+      - ${DOWNLOADS_DIR:-../app/downloads}:/downloads
